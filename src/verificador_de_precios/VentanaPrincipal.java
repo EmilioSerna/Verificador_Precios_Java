@@ -31,11 +31,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.getContentPane().setBackground(new Color(0, 122, 41));
         
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        
-        //pictureLogo.setLocation(this.getWidth() / 2 - pictureLogo.getWidth() / 2, this.getHeight() / 4 - pictureLogo.getHeight());
-        pictureLogo.setLocation(dim.width / 2 - this.getWidth() / 4, dim.height / 2);
-        //pictureLogo.setIcon(new ImageIcon(new ImageIcon("/images/logo.jpg").getImage().getScaledInstance(744, 162, Image.SCALE_DEFAULT)));
-
+        pictureLogo.setLocation(dim.width / 2 - this.getWidth() / 4, dim.height / 2 - this.getHeight() / 3);
+        labelTitle.setLocation(dim.width / 2 - this.getWidth() / 4, dim.height / 2 - pictureLogo.getHeight());
+        labelText.setLocation(dim.width / 2 - this.getWidth() / 3, dim.height / 2 - pictureLogo.getHeight() + labelTitle.getHeight());
+        pictureCodebar.setLocation(dim.width / 2 - pictureCodebar.getWidth() / 2, dim.height / 2 + labelText.getHeight() + (labelText.getHeight() / 2));
     }
 
     /**
@@ -49,28 +48,49 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pictureLogo = new javax.swing.JLabel();
         labelTitle = new javax.swing.JLabel();
+        labelText = new javax.swing.JLabel();
+        pictureCodebar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 122, 41));
+        setForeground(java.awt.Color.white);
         setUndecorated(true);
 
-        pictureLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/verificador_de_precios/images/logo.jpg"))); // NOI18N
+        pictureLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/verificador_de_precios/images/logo.png"))); // NOI18N
         pictureLogo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        labelTitle.setFont(new java.awt.Font("Heebo", 1, 72)); // NOI18N
-        labelTitle.setText("Pase el producto debajo del escáner");
+        labelTitle.setFont(new java.awt.Font("Heebo", 1, 120)); // NOI18N
+        labelTitle.setForeground(new java.awt.Color(255, 216, 89));
+        labelTitle.setText("Checa el precio");
+        labelTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        labelText.setFont(new java.awt.Font("Heebo", 1, 60)); // NOI18N
+        labelText.setForeground(new java.awt.Color(255, 255, 255));
+        labelText.setText("Pasando el código de barras bajo el sensor");
+        labelText.setToolTipText("");
+
+        pictureCodebar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/verificador_de_precios/images/barcode-scan.jpg"))); // NOI18N
+        pictureCodebar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pictureCodebar.setName(""); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pictureLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 2172, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelTitle)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pictureLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 2172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelTitle)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(labelText))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(pictureCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,7 +99,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(pictureLogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelTitle)
-                .addGap(163, 163, 163))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelText)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pictureCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,7 +146,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel labelText;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel pictureCodebar;
     private javax.swing.JLabel pictureLogo;
     // End of variables declaration//GEN-END:variables
 }
