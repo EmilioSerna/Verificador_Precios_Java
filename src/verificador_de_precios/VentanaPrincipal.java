@@ -5,12 +5,10 @@
  */
 package verificador_de_precios;
 
+import java.sql.*;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Toolkit;
-import static java.awt.image.ImageObserver.WIDTH;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -20,6 +18,12 @@ import javax.swing.JFrame;
 public class VentanaPrincipal extends javax.swing.JFrame {
     
     private static String codigo = "";
+    private static String serverIP = "localhost";
+    private static String port = "3306";
+    private static String database = "verificador_precios";
+    private static String username = "root";
+    private static String password = "";
+    private static String table = "productos";
 
     /**
      * Creates new form VentanaPrincipal
@@ -119,7 +123,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if (evt.getKeyChar() == '\n') {
+            String url = "jdbc:mysql://" + serverIP + ":" + port + "/" + database + "?user=" + username + "&pasword=" + password;
             
+            try {
+                Connection connection = DriverManager.getConnection(url);
+                String query = "SELECT producto_nombre, producto_precio, producto_imagen FROM " + database + "." + table + " WHERE producto_codigo = '" + codigo + "';";
+                
+                ResultSet rs = connection.createStatement().executeQuery(query);
+                String nombre = "", precio = "", imagen = "";
+                while (rs.next()) {
+                    nombre = rs.getString("producto_nombre");
+                    precio = rs.getString("producto_precio");
+                    imagen = rs.getString("producto_imagen");
+                }
+                System.out.format("%s, %s, %s", nombre, precio, imagen);
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
             codigo = "";
         } else {
             codigo += evt.getKeyChar();
