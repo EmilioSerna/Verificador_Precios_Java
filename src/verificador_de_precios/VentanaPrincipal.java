@@ -18,6 +18,8 @@ import javax.swing.JFrame;
  * @author aemil
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+    
+    private static String codigo = "";
 
     /**
      * Creates new form VentanaPrincipal
@@ -55,6 +57,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 122, 41));
         setForeground(java.awt.Color.white);
         setUndecorated(true);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         pictureLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/verificador_de_precios/images/logo.png"))); // NOI18N
         pictureLogo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -110,6 +117,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.getKeyChar() == '\n') {
+            
+            codigo = "";
+        } else {
+            codigo += evt.getKeyChar();
+        }
+    }//GEN-LAST:event_formKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -143,6 +159,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 new VentanaPrincipal().setVisible(true);
             }
         });
+    }
+    
+    private void MainWindowVisible(boolean option) {
+        /***
+         * 
+         */
+        pictureLogo.setVisible(option);
+        labelTitle.setVisible(option);
+        labelText.setVisible(option);
+        pictureCodebar.setVisible(option);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
