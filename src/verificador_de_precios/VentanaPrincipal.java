@@ -75,7 +75,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         labelProductDesc = new javax.swing.JLabel();
         labelProductPrice = new javax.swing.JLabel();
         pictureProduct = new javax.swing.JLabel();
-        labelTitle1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 122, 41));
@@ -126,11 +125,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pictureProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pictureProduct.setName(""); // NOI18N
 
-        labelTitle1.setFont(new java.awt.Font("Heebo", 1, 150)); // NOI18N
-        labelTitle1.setForeground(new java.awt.Color(255, 216, 89));
-        labelTitle1.setText("Lo sentimos");
-        labelTitle1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,17 +153,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pictureLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelTitle1))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(pictureLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labelTitle1))
+                .addGap(112, 112, 112)
+                .addComponent(pictureLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -287,7 +277,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel labelProductPrice;
     private javax.swing.JLabel labelText;
     private javax.swing.JLabel labelTitle;
-    private javax.swing.JLabel labelTitle1;
     private javax.swing.JLabel pictureCodebar;
     private javax.swing.JLabel pictureLogo;
     private javax.swing.JLabel pictureProduct;
