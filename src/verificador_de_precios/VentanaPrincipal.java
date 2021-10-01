@@ -40,6 +40,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.setVisible(true);
         this.getContentPane().setBackground(new Color(0, 122, 41));
         
+        MainWindowVisible(true);
+        PriceWindowVisible(false);
+        ErrorWindowVisible(false);        
         
         pictureLogo.setText("<html><img src='file:" + dir + "logo.png' width='744' height='162'");
         pictureCodebar.setText("<html><img src='file:" + dir + "barcode-scan.gif' width='288' height='252'");
@@ -48,6 +51,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         labelTitle.setLocation(dim.width / 2 - labelTitle.getWidth() / 2, dim.height / 3 - pictureLogo.getHeight() / 3);
         labelText.setLocation(dim.width / 2 - labelText.getWidth() / 2, dim.height / 3 - pictureLogo.getHeight() / 3 + labelTitle.getHeight());
         pictureCodebar.setLocation(dim.width / 2 - pictureCodebar.getWidth() / 2, dim.height / 2 + pictureLogo.getHeight());
+        
+        pictureProduct.setLocation(dim.width / 5 - pictureProduct.getWidth() / 2, dim.height / 2 - pictureProduct.getHeight() / 2);
+        labelProductName.setLocation(dim.width / 2 - pictureProduct.getWidth() / 2 - 30, dim.height / 2 - pictureProduct.getHeight() / 2 - 60);
+        labelProductDesc.setLocation(dim.width / 2 - pictureProduct.getWidth() / 2 - 30, dim.height / 2 - labelProductName.getHeight() - 80);
+        labelProductPrice.setLocation(dim.width / 2 - pictureProduct.getWidth() / 2 - 30, dim.height / 2 + pictureProduct.getHeight() / 2);
     }
 
     /**
@@ -63,6 +71,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         labelTitle = new javax.swing.JLabel();
         labelText = new javax.swing.JLabel();
         pictureCodebar = new javax.swing.JLabel();
+        labelProductName = new javax.swing.JLabel();
+        labelProductDesc = new javax.swing.JLabel();
+        labelProductPrice = new javax.swing.JLabel();
+        pictureProduct = new javax.swing.JLabel();
+        labelTitle1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 122, 41));
@@ -93,6 +106,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pictureCodebar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pictureCodebar.setName(""); // NOI18N
 
+        labelProductName.setFont(new java.awt.Font("Heebo", 1, 80)); // NOI18N
+        labelProductName.setForeground(new java.awt.Color(255, 216, 89));
+        labelProductName.setText("Nombre del producto");
+        labelProductName.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        labelProductDesc.setFont(new java.awt.Font("Heebo", 0, 70)); // NOI18N
+        labelProductDesc.setForeground(new java.awt.Color(255, 255, 255));
+        labelProductDesc.setText("Descripción del producto ");
+        labelProductDesc.setToolTipText("");
+
+        labelProductPrice.setFont(new java.awt.Font("Heebo", 1, 80)); // NOI18N
+        labelProductPrice.setForeground(new java.awt.Color(255, 216, 89));
+        labelProductPrice.setText("Precio: xxx.xx");
+        labelProductPrice.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        pictureProduct.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        pictureProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/verificador_de_precios/images/image placeholder.png"))); // NOI18N
+        pictureProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pictureProduct.setName(""); // NOI18N
+
+        labelTitle1.setFont(new java.awt.Font("Heebo", 1, 150)); // NOI18N
+        labelTitle1.setForeground(new java.awt.Color(255, 216, 89));
+        labelTitle1.setText("Lo sentimos");
+        labelTitle1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,29 +139,54 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTitle)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(labelText))
-                            .addComponent(pictureLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labelTitle))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(pictureCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(538, Short.MAX_VALUE))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pictureCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pictureProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelText)
+                                    .addComponent(labelProductName)
+                                    .addComponent(labelProductDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 1592, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(labelProductPrice)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pictureLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelTitle1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addComponent(pictureLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(pictureLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTitle1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pictureCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(pictureCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(pictureProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelProductName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelProductDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelProductPrice))))
         );
 
         pack();
@@ -139,13 +202,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 String query = "SELECT producto_nombre, producto_precio, producto_imagen FROM " + database + "." + table + " WHERE producto_codigo = '" + codigo + "';";
                 
                 ResultSet rs = connection.createStatement().executeQuery(query);
+                
+                MainWindowVisible(false);
+                PriceWindowVisible(true);
+                ErrorWindowVisible(false);
+                
                 String nombre = "", precio = "", imagen = "";
+                
                 while (rs.next()) {
                     nombre = rs.getString("producto_nombre");
                     precio = rs.getString("producto_precio");
                     imagen = rs.getString("producto_imagen");
                 }
-                System.out.format("%s, %s, %s", nombre, precio, imagen);
+                
+                labelProductDesc.setText(nombre);
+                labelProductPrice.setText("Precio: " + precio);
+                pictureProduct.setText("<html><img src='" + imagen + "' width='527' height='479'");
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
@@ -191,9 +263,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
     
     private void MainWindowVisible(boolean option) {
-        /***
-         * 
-         */
         pictureLogo.setVisible(option);
         labelTitle.setVisible(option);
         labelText.setVisible(option);
@@ -201,6 +270,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
     
     private void PriceWindowVisible(boolean option) {
+        pictureProduct.setVisible(option);
+        labelProductName.setVisible(option);
+        labelProductDesc.setVisible(option);
+        labelProductPrice.setVisible(option);
         
     }
     
@@ -209,9 +282,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel labelProductDesc;
+    private javax.swing.JLabel labelProductName;
+    private javax.swing.JLabel labelProductPrice;
     private javax.swing.JLabel labelText;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel labelTitle1;
     private javax.swing.JLabel pictureCodebar;
     private javax.swing.JLabel pictureLogo;
+    private javax.swing.JLabel pictureProduct;
     // End of variables declaration//GEN-END:variables
 }
