@@ -58,7 +58,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         labelProductPrice.setLocation(dim.width / 2 - pictureProduct.getWidth() / 2 - 30, dim.height / 2 + pictureProduct.getHeight() / 2);
 
         labelErrorTitle.setLocation(dim.width / 2 - labelErrorTitle.getWidth() / 2, dim.height / 4 - labelErrorTitle.getHeight());
-        labelErrorText.setLocation(dim.width / 2 - labelErrorText.getWidth() / 2, dim.height / 3 - labelErrorText.getHeight() / 2);
     }
 
     /**
@@ -238,7 +237,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     labelProductDesc.setText(nombre);
                     labelProductPrice.setText("Precio: " + precio);
                     pictureProduct.setText("<html><img src='" + imagen + "' width='527' height='479'");
+                    
                 } else {
+                    labelErrorText.setText("<html>Hubo un error al realizar el escaneo<br><br>"
+                            + "Inténtalo de nuevo o avisa a un\n"
+                            + "empleado de la sucursal para\n"
+                            + "solicitar ayuda");
+                    
+                    labelErrorText.setLocation(dim.width / 2 - labelErrorText.getWidth() / 2, dim.height / 3 - labelErrorTitle.getHeight() + 30);
+                    
                     MainWindowVisible(false);
                     PriceWindowVisible(false);
                     ErrorWindowVisible(true);
