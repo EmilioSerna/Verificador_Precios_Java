@@ -9,30 +9,33 @@ import java.sql.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.util.TimerTask;
+import java.util.Timer;
 
 /**
  *
  * @author aemil
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+    private String codigo = "";
+    private String serverIP = "localhost";
+    private String port = "3306";
+    private String database = "verificador_precios";
+    private String username = "root";
+    private String password = "";
+    private String table = "productos";
+    private Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    private String dir = "F:/OneDrive - Universidad de Sonora/Séptimo Semestre/Gestión de la Calidad del Software II/NetBeans/verificador_de_precios/src/verificador_de_precios/images/";
+    private int timeLimit = 2000;
 
-    private static String codigo = "";
-    private static String serverIP = "localhost";
-    private static String port = "3306";
-    private static String database = "verificador_precios";
-    private static String username = "root";
-    private static String password = "";
-    private static String table = "productos";
-    private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    private static String dir = "F:/OneDrive - Universidad de Sonora/Séptimo Semestre/Gestión de la Calidad del Software II/NetBeans/verificador_de_precios/src/verificador_de_precios/images/";
 
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
+
         initComponents();
 
         this.setLayout(null);
@@ -44,8 +47,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PriceWindowVisible(false);
         ErrorWindowVisible(false);
 
-        pictureLogo.setText("<html><img src='file:" + dir + "logo.png' width='744' height='162'");
-        pictureCodebar.setText("<html><img src='file:" + dir + "barcode-scan.gif' width='288' height='252'");
+        pictureLogo.setText("<html><img src='file:" + dir + "logo.png' width='744' height='162'>");
+        pictureCodebar.setText("<html><img src='file:" + dir + "barcode-scan.gif' width='288' height='252'>");
 
         pictureLogo.setLocation(dim.width / 2 - pictureLogo.getWidth() / 2, dim.height / 4 - pictureLogo.getHeight());
         labelTitle.setLocation(dim.width / 2 - labelTitle.getWidth() / 2, dim.height / 3 - pictureLogo.getHeight() / 3);
@@ -238,6 +241,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     labelProductPrice.setText("Precio: $" + precio);
                     pictureProduct.setText("<html><img src='" + imagen + "' width='527' height='479'");
                     
+                    timer(timeLimit);
+                    
                 } else {
                     labelErrorText.setText("<html>Hubo un error al realizar el escaneo<br><br>"
                             + "Inténtalo de nuevo o avisa a un\n"
@@ -249,6 +254,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     MainWindowVisible(false);
                     PriceWindowVisible(false);
                     ErrorWindowVisible(true);
+                    
+                    timer(timeLimit);
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Hubo un error al conectarse a la base de datos");
@@ -315,17 +322,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         labelErrorTitle.setVisible(option);
         labelErrorText.setVisible(option);
     }
+    
+    private void timer(int time) {
+        Timer t = new Timer();
+        
+        t.schedule(new TimerTask() {
+            
+            @Override
+            public void run() {
+                try {
+                    MainWindowVisible(true);
+                    PriceWindowVisible(false);
+                    ErrorWindowVisible(false);
+                    
+                    t.cancel();
+                } catch (Exception ex) {
+                    System.out.println(ex.toString());
+                } 
+                t.cancel();
+            }
+        }, time, time);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel labelErrorText;
-    private javax.swing.JLabel labelErrorTitle;
-    private javax.swing.JLabel labelProductDesc;
-    private javax.swing.JLabel labelProductName;
-    private javax.swing.JLabel labelProductPrice;
-    private javax.swing.JLabel labelText;
-    private javax.swing.JLabel labelTitle;
-    private javax.swing.JLabel pictureCodebar;
-    private javax.swing.JLabel pictureLogo;
-    private javax.swing.JLabel pictureProduct;
+    private static javax.swing.JLabel labelErrorText;
+    private static javax.swing.JLabel labelErrorTitle;
+    private static javax.swing.JLabel labelProductDesc;
+    private static javax.swing.JLabel labelProductName;
+    private static javax.swing.JLabel labelProductPrice;
+    private static javax.swing.JLabel labelText;
+    private static javax.swing.JLabel labelTitle;
+    private static javax.swing.JLabel pictureCodebar;
+    private static javax.swing.JLabel pictureLogo;
+    private static javax.swing.JLabel pictureProduct;
     // End of variables declaration//GEN-END:variables
 }

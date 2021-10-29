@@ -127,6 +127,9 @@
         <Property name="text" type="java.lang.String" value="Logo"/>
         <Property name="verticalAlignment" type="int" value="1"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelTitle">
       <Properties>
@@ -139,6 +142,9 @@
         <Property name="text" type="java.lang.String" value="Checa el precio"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelText">
       <Properties>
@@ -151,6 +157,9 @@
         <Property name="text" type="java.lang.String" value="Pasando el c&#xf3;digo de barras bajo el sensor"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="pictureCodebar">
       <Properties>
@@ -161,6 +170,9 @@
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelProductName">
       <Properties>
@@ -173,6 +185,9 @@
         <Property name="text" type="java.lang.String" value="Nombre del producto"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelProductDesc">
       <Properties>
@@ -185,6 +200,9 @@
         <Property name="text" type="java.lang.String" value="Descripci&#xf3;n del producto "/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelProductPrice">
       <Properties>
@@ -197,6 +215,9 @@
         <Property name="text" type="java.lang.String" value="Precio: xxx.xx"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="pictureProduct">
       <Properties>
@@ -209,6 +230,9 @@
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelErrorTitle">
       <Properties>
@@ -221,6 +245,9 @@
         <Property name="text" type="java.lang.String" value="Lo sentimos"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelErrorText">
       <Properties>
@@ -233,6 +260,9 @@
         <Property name="text" type="java.lang.String" value="Hubo un error al realizar el escaneo"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
